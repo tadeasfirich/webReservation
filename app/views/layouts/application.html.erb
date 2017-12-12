@@ -1,14 +1,32 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>WebReservation</title>
+    <title>Rezervační Systém UCL</title>
     <%= csrf_meta_tags %>
 
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:400,700%7CAlegreya:400,700&amp;subset=latin-ext" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header class="header">
+      <nav class="header__nav">
+        <ul class="header__ul">
+          <li>
+            <a class="header__a header-active" href="index.html">Budovy</a>
+          </li>
+          <li>
+            <a class="header__a" href="rooms.html">Místnosti</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <div class="container">
     <%= yield %>
+    </div>
+    <footer class="footer">
+      <p class="footer__p">&copy; Tadeáš Firich 2017</p>
+    </footer>
   </body>
 </html>
