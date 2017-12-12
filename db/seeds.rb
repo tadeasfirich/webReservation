@@ -42,34 +42,57 @@ end
 
 
 
-# #Buildings
-# 10.times {
-#   Building.create!(:title => building_name, :code => building_code)
-# }
-#
-# #Rooms
-# 10.times {
-#   r = rand * (11-1) + 1
-#   Room.create!(:title => room_name, :code => room_code, :building => Building.find(r.to_i))
-# }
-#
-# #Teacher
-# 10.times {
-#   Teacher.create!(:first_name => first_name, :last_name => last_name, :email => email)
-# }
-#
-# #Courses
-# #TODO: dodělat language a study_type
-# 10.times {
-#   r = rand * (2-1) + 1
-#   s = rand * (2-1) + 1
-#   Building.create!(:title => course_title, :code => building_code, :language => 'CZECH', :ENGLISH => 'PART_TIME')
-# }
-#
-# #Students
-# 10.times {
-#   r = rand * (2-1) + 1
-#   Building.create!(:title => room_name, :code => building_code)
-# }
+#Buildings
+10.times {
+  Building.create!(:title => building_name, :code => building_code)
+}
 
-puts Building.attribute_names
+#Rooms
+10.times {
+  r = rand * (11-1) + 1
+  Room.create!(:title => room_name, :code => room_code, :building => Building.order('RANDOM()').first)
+}
+
+#Teacher
+10.times {
+  Teacher.create!(:first_name => first_name, :last_name => last_name, :email => email)
+}
+
+#Courses
+10.times {
+  r = rand * (3-1) + 1
+  s = rand * (3-1) + 1
+  Course.create!(:title => course_title, :code => building_code, :language => r.to_i, :study_type => s.to_i)
+}
+
+#Students
+10.times {
+  r = rand * (3-1) + 1
+  Student.create!(:first_name => first_name, :last_name => last_name, :email => email, :study_type => r.to_i)
+}
+
+#StudentAssigments
+50.times {
+  StudentAssigment.create!(:course => Course.order('RANDOM()').first, :student => Student.order('RANDOM()').first)
+}
+
+#TeacherAssigments
+50.times {
+  TeacherAssigment.create!(:teacher => Teacher.order('RANDOM()').first, :course => Course.order('RANDOM()').first)
+}
+
+#Lessons
+year = "2017"
+
+#TODO: Dodělat valdaci, jestl již datum neexistuje
+150.times {
+  mounth = (rand * (10-1) + 3).to_i
+  day = (rand * (31-1) + 1).to_i
+  hour = (rand * (11-1) + 8).to_i
+  hour2 = (hour.to_i + 3).to_s
+  minutes = "00"
+  datetime = "#{year}-#{mounth}-#{day} #{hour}:#{minutes}:00"
+  datetime2 = "#{year}-#{mounth}-#{day} #{hour2}:#{minutes}:00"
+  Lesson.create!(:start_at => datetime, :end_at => datetime2, :durration => 3, :room => Room.order('RANDOM()').first,
+                 :teacher => Teacher.order('RANDOM()').first, :course => Course.order('RANDOM()').first)
+}
