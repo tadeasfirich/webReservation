@@ -1,0 +1,38 @@
+# == Schema Information
+#
+# Table name: lessons
+#
+#  id         :integer          not null, primary key
+#  start_at   :datetime
+#  end_at     :datetime
+#  durration  :integer
+#  room_id    :integer
+#  teacher_id :integer
+#  course_id  :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+# Indexes
+#
+#  index_lessons_on_course_id   (course_id)
+#  index_lessons_on_room_id     (room_id)
+#  index_lessons_on_teacher_id  (teacher_id)
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_at: 2017-12-08 12:50:44
+  end_at: 2017-12-08 12:50:44
+  durration: 1
+  room: one
+  teacher: one
+  course: one
+
+two:
+  start_at: 2017-12-08 12:50:44
+  end_at: 2017-12-08 12:50:44
+  durration: 1
+  room: two
+  teacher: two
+  course: two

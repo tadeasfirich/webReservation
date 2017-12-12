@@ -1,0 +1,2 @@
+module StudentAssigmentsHelper
+end
