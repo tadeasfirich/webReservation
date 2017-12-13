@@ -1,6 +1,5 @@
 class RoomsController < ApplicationController
   before_action :set_room, only: [:show, :edit, :update, :destroy]
-  permits :title, :code, :building_id
 
   # GET /rooms
   # GET /rooms.json
@@ -11,6 +10,8 @@ class RoomsController < ApplicationController
   # GET /rooms/1
   # GET /rooms/1.json
   def show
+    @lessons = Lesson.select{|lesson| lesson.room_id.equal?(@room.id)}
+    @rooms = Room.select{|room| room.building_id.equal?(@room.building_id)}
   end
 
   # GET /rooms/new
