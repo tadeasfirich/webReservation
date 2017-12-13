@@ -1,0 +1,30 @@
+.seznam {
+  list-style-type: none;
+  background-color: #ebeced;
+  padding: 0;
+  border-radius: 5px;
+  overflow: auto;
+  margin-bottom: 38px;
+  @at-root #{&}__li {
+    background-color: #a2aab0;
+    height: 40px;
+    border-radius: 5px;
+    margin: 15px 0;
+    &:hover {
+      background-color: lighten(#a2aab0, 20%);
+    }
+  }
+  @at-root #{&}__a {
+    display: inline-block;
+    padding-left: 14px;
+    margin: 9px 0;
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+}
+

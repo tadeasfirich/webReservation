@@ -1,0 +1,11 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  background-color: #7C8A94;
+  @at-root #{&}__p {
+    margin: 10px 0;
+  }
+}

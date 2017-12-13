@@ -1,0 +1,35 @@
+.table {
+  border-collapse: collapse;
+  margin-bottom: 50px;
+  text-align: center;
+  width: 100%;
+  @at-root #{&}__heading {
+    > th {
+      width: 118px;
+    }
+    th:first-child {
+      width: 60px;
+    }
+  }
+  @at-root #{&}__body {
+    height: 40px;
+  }
+  @at-root #{&}__subject {
+    background-color: #D2D5D7;
+  }
+  th, td {
+    border-bottom: 1px solid #91b3bc;
+  }
+  @at-root #{&}-today {
+    width: 100%;
+    th, td {
+      border-right: 1px solid #91b3bc;
+    }
+    > th {
+      width: 23%;
+    }
+    th:first-child, td:first-child {
+      border-left: 1px solid #91b3bc;
+    }
+  }
+}

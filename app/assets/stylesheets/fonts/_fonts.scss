@@ -1,0 +1,18 @@
+$nonSans: 'Alegreya', serif;
+$sans: 'Alegreya Sans', sans-serif;
+
+.container__h1 {
+  font-family: $nonSans;
+}
+
+.container__nav {
+  font-family: $sans;
+}
+
+.seznam__a {
+  font-family: $sans;
+}
+
+.button {
+  font-family: $sans;
+}

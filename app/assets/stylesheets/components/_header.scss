@@ -1,0 +1,27 @@
+.header {
+  @at-root #{&}__nav {
+    height: 40px;
+    background-color: #91b3bc;
+  }
+  @at-root #{&}__ul {
+    list-style-type: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+  }
+  @at-root #{&}__a {
+    display: inline-block;
+    padding: 7px 10px;
+    font-size: 20px;
+    font-family: 'Alegreya Sans', sans-serif;
+    text-decoration: none;
+    height: 40px;
+    color: white;
+    &:hover {
+      background-color: #c0c5ce;//lighten(#91b3bc, 20%);
+    }
+  }
+  @at-root #{&}-active {
+    background-color: #2e323c;
+  }
+}

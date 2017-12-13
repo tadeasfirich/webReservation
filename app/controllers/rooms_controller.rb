@@ -1,5 +1,6 @@
 class RoomsController < ApplicationController
   before_action :set_room, only: [:show, :edit, :update, :destroy]
+  permits :title, :code, :building_id
 
   # GET /rooms
   # GET /rooms.json
