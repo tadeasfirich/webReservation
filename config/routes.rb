@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :courses
   resources :teachers
   resources :rooms
+  get '/buildings/:id', to: 'buildings#show', as: 'building'
   resources :buildings
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
