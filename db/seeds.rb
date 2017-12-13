@@ -84,9 +84,9 @@ end
 #Lessons
 year = "2017"
 
-#TODO: Dodělat valdaci, jestl již datum neexistuje
+#TODO: Dodělat valdaci, jestli již datum neexistuje
 150.times {
-  mounth = (rand * (10-1) + 3).to_i
+  mounth = "12"
   day = (rand * (31-1) + 1).to_i
   hour = (rand * (11-1) + 8).to_i
   hour2 = (hour.to_i + 3).to_s
