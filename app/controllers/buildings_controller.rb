@@ -10,7 +10,6 @@ class BuildingsController < ApplicationController
   # GET /buildings/1
   # GET /buildings/1.json
   def show
-    @building = Building.find(params[:id])
     @rooms = Room.select{|room| room.building_id.equal?(@building.id)}
   end
 
