@@ -13,6 +13,10 @@ class BuildingsController < ApplicationController
     @rooms = Room.select{|room| room.building_id.equal?(@building.id)}
   end
 
+  def show_today
+    @rooms = Room.select{|room| room.building_id.equal?(@building.id)}
+  end
+
   # GET /buildings/new
   def new
   end
