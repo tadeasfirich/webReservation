@@ -1,10 +1,10 @@
 <h1 class="container__h1">Seznam místností</h1>
 <nav class="container__nav">
 
-  <%= link_to 'Seznam Budov', @buildings, :class=>"container__item" %>
+  <%= link_to 'Seznam Budov', root_path, :class=>"container__item" %>
   <p class="container__item">&gt;</p>
   <!--<a class=" href="rooms.html">Seznam místností</a>-->
-  <%= link_to @building.title, @building, :class=>"container__item" %>
+  <%= link_to @building.title, session[:return_to] ||= request.referer, :class=>"container__item" %>
   <p class="container__item">&gt;</p>
   <a class="container__item">Rozvrh dne</a>
 </nav>
