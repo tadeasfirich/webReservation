@@ -1,5 +1,5 @@
 class BuildingsController < ApplicationController
-  before_action :set_building, only: [:show, :edit, :update, :destroy]
+  before_action :set_building, only: [:show, :edit, :update, :destroy, :show_today]
 
   # GET /buildings
   # GET /buildings.json
@@ -14,7 +14,7 @@ class BuildingsController < ApplicationController
   end
 
   def show_today
-    @rooms = Room.select{|room| room.building_id.equal?(@building.id)}
+    @lessons = Lesson.select{|lesson| lesson.start_at.strftime("%Y-%m-%d") == Date.today.to_s}
   end
 
   # GET /buildings/new

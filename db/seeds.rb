@@ -86,8 +86,8 @@ year = "2017"
 
 #TODO: Dodělat valdaci, jestli již datum neexistuje
 150.times {
-  mounth = "12"
-  day = (rand * (31-1) + 1).to_i
+  mounth = '12'
+  day = Date.today.strftime("%d")
   hour = (rand * (11-1) + 8).to_i
   hour2 = (hour.to_i + 3).to_s
   minutes = "00"

@@ -8,10 +8,8 @@ Rails.application.routes.draw do
   resources :courses
   resources :teachers
   resources :rooms
-  get '/buildings/:id', to: 'buildings#show', as: 'building'
-
-  get '/buildings/today/:id', to: 'buildings#show_today', as: 'building_today'
   resources :buildings
+  get '/buildings/:id/today', to: 'buildings#show_today', as: 'building_today'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
