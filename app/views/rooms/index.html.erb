@@ -1,31 +1,44 @@
-<p id="notice"><%= notice %></p>
+<!--<p id="notice"><%= notice %></p>-->
 
-<h1>Rooms</h1>
+<!--<h1>Rooms</h1>-->
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Code</th>
-      <th>Building</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<!--<table>-->
+  <!--<thead>-->
+    <!--<tr>-->
+      <!--<th>Title</th>-->
+      <!--<th>Code</th>-->
+      <!--<th>Building</th>-->
+      <!--<th colspan="3"></th>-->
+    <!--</tr>-->
+  <!--</thead>-->
 
-  <tbody>
-    <% @rooms.each do |room| %>
-      <tr>
-        <td><%= room.title %></td>
-        <td><%= room.code %></td>
-        <td><%= room.building %></td>
-        <td><%= link_to 'Show', room %></td>
-        <td><%= link_to 'Edit', edit_room_path(room) %></td>
-        <td><%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <!--<tbody>-->
+    <!--<% @rooms.each do |room| %>-->
+      <!--<tr>-->
+        <!--<td><%= room.title %></td>-->
+        <!--<td><%= room.code %></td>-->
+        <!--<td><%= room.building %></td>-->
+        <!--<td><%= link_to 'Show', room %></td>-->
+        <!--<td><%= link_to 'Edit', edit_room_path(room) %></td>-->
+        <!--<td><%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+      <!--</tr>-->
+    <!--<% end %>-->
+  <!--</tbody>-->
+<!--</table>-->
 
-<br>
+<!--<br>-->
 
-<%= link_to 'New Room', new_room_path %>
+<!--<%= link_to 'New Room', new_room_path %>-->
+
+<h1 class="container__h1">Seznam Budov</h1>
+<nav class="container__nav">
+  <a class="container__a">Seznam Budov</a>
+</nav>
+<ul class="seznam">
+  <% @rooms.each do |room| %>
+      <li class="seznam__li">
+        <%= link_to room.title, room, :class=>"seznam__a" %>
+        <%= link_to "is in Building: #{room.building.title}", room.building, :class=>"seznam__a" %>
+      </li>
+  <% end %>
+</ul>

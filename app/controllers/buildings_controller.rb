@@ -14,7 +14,6 @@ class BuildingsController < ApplicationController
   end
 
   def show_today
-    #TODO: zajistit aby zobrazenné lessony byli jen ty z téhle budovi
     @lessons = Lesson.select{|lesson| (lesson.start_at.strftime("%Y-%m-%d") == Date.today.to_s) && (lesson.room.building == @building)}
   end
 

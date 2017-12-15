@@ -12,6 +12,7 @@ class RoomsController < ApplicationController
   def show
     @lessons = Lesson.select{|lesson| lesson.room_id.equal?(@room.id)}
     @rooms = Room.select{|room| room.building_id.equal?(@room.building_id)}
+    @building = @room.building
   end
 
   # GET /rooms/new

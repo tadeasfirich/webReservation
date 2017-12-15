@@ -14,11 +14,10 @@
       <nav class="header__nav">
         <ul class="header__ul">
           <li>
-            <%= link_to 'Budovy', root_path, :class=>"header__a header-active" %>
-            <!--<a class="header__a header-active" href="index.html">Budovy</a>-->
+            <%= link_to 'Budovy', root_path, :class => "header__a header-active" %>
           </li>
           <li>
-            <a class="header__a" href="rooms.html">Místnosti</a>
+            <%=	link_to 'Místnosti', rooms_path, :class => 'header__a'%>
           </li>
         </ul>
       </nav>
