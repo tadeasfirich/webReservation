@@ -15,10 +15,10 @@
         <ul class="header__ul">
           <li>
             <!--TODO: Dodělat active class na aktivním prvku-->
-            <%= link_to 'Budovy', root_path, :class => "header__a header-active" %>
+            <%= link_to 'Budovy', root_path, :class => "header__a #{current_class?(root_path)}" %>
           </li>
           <li>
-            <%=	link_to 'Místnosti', rooms_path, :class => 'header__a'%>
+            <%=	link_to 'Místnosti', rooms_path, :class => "header__a #{current_class?(rooms_path)}"%>
           </li>
         </ul>
       </nav>
