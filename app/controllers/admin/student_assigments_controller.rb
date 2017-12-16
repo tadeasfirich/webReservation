@@ -28,7 +28,7 @@ class Admin::StudentAssigmentsController < ApplicationController
 
     respond_to do |format|
       if @student_assigment.save
-        format.html { redirect_to @student_assigment, notice: 'Student assigment was successfully created.' }
+        format.html { redirect_to [:admin, @student_assigment], notice: 'Student assigment was successfully created.' }
         format.json { render :show, status: :created, location: @student_assigment }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class Admin::StudentAssigmentsController < ApplicationController
   def update
     respond_to do |format|
       if @student_assigment.update(student_assigment_params)
-        format.html { redirect_to @student_assigment, notice: 'Student assigment was successfully updated.' }
+        format.html { redirect_to [:admin, @student_assigment], notice: 'Student assigment was successfully updated.' }
         format.json { render :show, status: :ok, location: @student_assigment }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class Admin::StudentAssigmentsController < ApplicationController
   def destroy
     @student_assigment.destroy
     respond_to do |format|
-      format.html { redirect_to student_assigments_url, notice: 'Student assigment was successfully destroyed.' }
+      format.html { redirect_to admin_student_assigments_url, notice: 'Student assigment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
