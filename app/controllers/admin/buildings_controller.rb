@@ -19,6 +19,7 @@ class Admin::BuildingsController < AdminController
 
   # GET /buildings/new
   def new
+    @building = Building.new
   end
 
   # GET /buildings/1/edit
