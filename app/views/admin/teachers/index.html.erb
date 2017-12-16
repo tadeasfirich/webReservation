@@ -29,3 +29,16 @@
 <br>
 
 <%= link_to 'New Teacher', new_admin_teacher_path %>
+
+<h1 class="container__h1">Seznam Vyučujících</h1>
+<nav class="container__nav">
+  <%= link_to 'Seznam Budov', '', :class=>"container__item" %>
+</nav>
+<ul class="seznam">
+  <% @teachers.each do |teacher| %>
+      <li class="seznam__li">
+        <%= link_to teacher.first_name, teacher, :class=>"seznam__a" %>
+        <%= link_to "is in Building: #{teacher.building.title}", teacher.building, :class=>"seznam__a" %>
+      </li>
+  <% end %>
+</ul>

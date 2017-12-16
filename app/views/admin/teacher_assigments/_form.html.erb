@@ -1,27 +1,12 @@
-<%= form_with(model: [:admin, teacher_assigment], local: true) do |form| %>
-  <% if teacher_assigment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(teacher_assigment.errors.count, "error") %> prohibited this teacher_assigment from being saved:</h2>
+<%= simple_form_for [:admin, @teacher_assigment]  do |f| %>
+    <%= f.error_notification %>
 
-      <ul>
-      <% teacher_assigment.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="form-inputs">
+      <%=f.association :teacher, label_method: :first_name %>
+      <%=f.association :course, label_method: :title %>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :teacher_id %>
-    <%= form.text_field :teacher_id, id: :teacher_assigment_teacher_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :course_id %>
-    <%= form.text_field :course_id, id: :teacher_assigment_course_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
 <% end %>
