@@ -6,9 +6,8 @@
 <ul class="seznam">
   <% @buildings.each do |building| %>
     <li class="seznam__li">
-      <%= link_to building.title, [:admin, building], :class=>"seznam__a" %>
-      <%= link_to 'Show', [:admin, building], :class=>"seznam__a seznam__a-right" %>
-      <%= link_to 'Edit', edit_admin_building_path(building), :class=>"seznam__a" %>
+      <%= link_to "#{building.code}: #{building.title}", [:admin, building], :class=>"seznam__a" %>
+      <%= link_to 'Edit', edit_admin_building_path(building), :class=>"seznam__a seznam__a-right" %>
       <%= link_to 'Destroy', [:admin, building], method: :delete, data: { confirm: 'Are you sure?' }, :class=>"seznam__a seznam__a-end" %>
     </li>
   <% end %>

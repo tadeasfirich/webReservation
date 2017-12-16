@@ -1,32 +1,12 @@
-<%= form_with(model: room, local: true) do |form| %>
-  <% if room.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(room.errors.count, "error") %> prohibited this room from being saved:</h2>
+<%= simple_form_for [:admin, @room]  do |f| %>
+    <%= f.error_notification %>
 
-      <ul>
-      <% room.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="form-inputs">
+      <%=f.input :title %>
+      <%=f.input :code %>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :room_title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :code %>
-    <%= form.text_field :code, id: :room_code %>
-  </div>
-
-  <div class="field">
-    <%= form.label :building_id %>
-    <%= form.text_field :building_id, id: :room_building_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
 <% end %>

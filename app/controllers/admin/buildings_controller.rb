@@ -47,7 +47,7 @@ class Admin::BuildingsController < AdminController
   def update
     respond_to do |format|
       if @building.update(building_params)
-        format.html { redirect_to [:admin, @building], notice: 'Building was successfully updated.' }
+        format.html { redirect_to admin_buildings_path, notice: 'Building was successfully updated.' }
         format.json { render :show, status: :ok, location: @building }
       else
         format.html { render :edit }

@@ -8,7 +8,9 @@
 <ul class="seznam">
   <% @rooms.each do |room| %>
       <li class="seznam__li">
-        <%= link_to room.title, room, :class=>"seznam__a" %>
+        <%= link_to "#{room.code}: #{room.title}", [:admin, room], :class=>"seznam__a" %>
+        <%= link_to 'Edit', edit_admin_room_path(room), :class=>"seznam__a seznam__a-right" %>
+        <%= link_to 'Destroy', [:admin, room], method: :delete, data: { confirm: 'Are you sure?' }, :class=>"seznam__a seznam__a-end" %>
       </li>
   <% end %>
 </ul>
