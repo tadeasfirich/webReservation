@@ -1,4 +1,4 @@
-class Admin::BuildingsController < ApplicationController
+class Admin::BuildingsController < AdminController
   before_action :set_building, only: [:show, :edit, :update, :destroy, :show_today]
 
   # GET /buildings

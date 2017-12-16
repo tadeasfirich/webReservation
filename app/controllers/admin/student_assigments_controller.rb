@@ -1,4 +1,4 @@
-class Admin::StudentAssigmentsController < ApplicationController
+class Admin::StudentAssigmentsController < AdminController
   before_action :set_student_assigment, only: [:show, :edit, :update, :destroy]
 
   # GET /student_assigments
