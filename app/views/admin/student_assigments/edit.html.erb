@@ -2,5 +2,5 @@
 
 <%= render 'form', student_assigment: @student_assigment %>
 
-<%= link_to 'Show', @student_assigment %> |
-<%= link_to 'Back', student_assigments_path %>
+<%= link_to 'Show', [:admin, @student_assigment] %> |
+<%= link_to 'Back', admin_student_assigments_path %>

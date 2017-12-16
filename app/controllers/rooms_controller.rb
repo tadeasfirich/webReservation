@@ -1,6 +1,7 @@
 class RoomsController < ApplicationController
   before_action :set_room, only: [:show, :edit, :update, :destroy]
 
+  #TODO: Udělat vypisování do Pod každou budovu vždy její roomy, (dva cykly v sobě)
   # GET /rooms
   # GET /rooms.json
   def index
