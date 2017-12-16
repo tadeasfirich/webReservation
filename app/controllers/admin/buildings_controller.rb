@@ -33,7 +33,7 @@ class Admin::BuildingsController < AdminController
 
     respond_to do |format|
       if @building.save
-        format.html { redirect_to [:admin, @building], notice: 'Building was successfully created.' }
+        format.html { redirect_to admin_buildings_path, notice: 'Building was successfully created.' }
         format.json { render :show, status: :created, location: @building }
       else
         format.html { render :new }
