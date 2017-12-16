@@ -167,7 +167,7 @@
   <div class="seznam">
     <% @lessons.each do |lesson| %>
         <p class="seznam__li">
-          <%= link_to lesson.start_at, lesson, :class=>"seznam__a" %>
+          <%= link_to lesson.start_at, '', :class=>"seznam__a" %>
         </p>
     <% end %>
   </div>
