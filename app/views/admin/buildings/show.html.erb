@@ -1,0 +1,14 @@
+<h1 class="container__h1">Seznam Budov</h1>
+<nav class="container__nav">
+  <%= link_to 'Seznam Budov', root_path, :class=>"container__item" %>
+  <p class="container__item">&gt;</p>
+  <a class="container__item">Seznam místností</a>
+</nav>
+<%= link_to 'Denní rozpis', building_today_url , :class=>'button' %>
+<ul class="seznam">
+  <% @rooms.each do |room| %>
+      <li class="seznam__li">
+        <%= link_to room.title, room, :class=>"seznam__a" %>
+      </li>
+  <% end %>
+</ul>

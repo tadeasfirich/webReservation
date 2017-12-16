@@ -1,0 +1,14 @@
+<h1 class="container__h1">Seznam Budov</h1>
+<nav class="container__nav">
+  <%= link_to 'Seznam Budov', root_path, :class=>"container__item" %>
+  <p class="container__item">&gt;</p>
+  <a class="container__a">Seznam Roomů</a>
+</nav>
+<ul class="seznam">
+  <% @rooms.each do |room| %>
+      <li class="seznam__li">
+        <%= link_to room.title, room, :class=>"seznam__a" %>
+        <%= link_to "is in Building: #{room.building.title}", room.building, :class=>"seznam__a" %>
+      </li>
+  <% end %>
+</ul>

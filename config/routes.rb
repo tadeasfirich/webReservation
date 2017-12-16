@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   resources :rooms, only: [:show, :index]
   get '/buildings/:id/today', to: 'buildings#show_today', as: 'building_today'
   resources :buildings, only: [:show, :index]
-  
+
+  #TODO: DOdělat namespace admin
   namespace :admin do
     resources :student_assigments
     resources :teacher_assigments
