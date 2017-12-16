@@ -14,11 +14,11 @@
   <tbody>
     <% @teacher_assigments.each do |teacher_assigment| %>
       <tr>
-        <td><%= teacher_assigment.teacher %></td>
-        <td><%= teacher_assigment.course %></td>
-        <td><%= link_to 'Show', teacher_assigment %></td>
-        <td><%= link_to 'Edit', edit_teacher_assigment_path(teacher_assigment) %></td>
-        <td><%= link_to 'Destroy', teacher_assigment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= teacher_assigment.teacher.first_name %> <%= teacher_assigment.teacher.last_name %></td>
+        <td><%= teacher_assigment.course.code %></td>
+        <td><%= link_to 'Show', [:admin, teacher_assigment] %></td>
+        <td><%= link_to 'Edit', edit_admin_teacher_assigment_path(teacher_assigment) %></td>
+        <td><%= link_to 'Destroy', [:admin, teacher_assigment], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Teacher Assigment', new_teacher_assigment_path %>
+<%= link_to 'New Teacher Assigment', new_admin_teacher_assigment_path %>

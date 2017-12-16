@@ -16,9 +16,9 @@
       <tr>
         <td><%= student_assigment.course %></td>
         <td><%= student_assigment.student %></td>
-        <td><%= link_to 'Show', student_assigment %></td>
-        <td><%= link_to 'Edit', edit_student_assigment_path(student_assigment) %></td>
-        <td><%= link_to 'Destroy', student_assigment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', [:admin, student_assigment] %></td>
+        <td><%= link_to 'Edit', edit_admin_student_assigment_path(student_assigment) %></td>
+        <td><%= link_to 'Destroy', [:admin, student_assigment], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Student Assigment', new_student_assigment_path %>
+<%= link_to 'New Student Assigment', new_admin_student_assigment_path %>
