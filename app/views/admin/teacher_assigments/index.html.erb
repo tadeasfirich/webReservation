@@ -1,29 +1,14 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Teacher Assigments</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Teacher</th>
-      <th>Course</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @teacher_assigments.each do |teacher_assigment| %>
-      <tr>
-        <td><%= teacher_assigment.teacher.first_name %> <%= teacher_assigment.teacher.last_name %></td>
-        <td><%= teacher_assigment.course.code %></td>
-        <td><%= link_to 'Show', [:admin, teacher_assigment] %></td>
-        <td><%= link_to 'Edit', edit_admin_teacher_assigment_path(teacher_assigment) %></td>
-        <td><%= link_to 'Destroy', [:admin, teacher_assigment], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Teacher Assigment', new_admin_teacher_assigment_path %>
+<h1 class="container__h1">Teacher Assigment</h1>
+<nav class="container__nav">
+  <a class="container__a">Teacher Assigment</a>
+</nav>
+<%= link_to 'Add',  new_admin_teacher_assigment_path , :class=>'button' %>
+<ul class="seznam">
+  <% @teacher_assigments.each do |assigment| %>
+      <li class="seznam__li">
+        <%= link_to "#{assigment.teacher.first_name} #{assigment.teacher.last_name}: (#{assigment.course.code}) #{assigment.course.title}", '', :class=>"seznam__a" %>
+        <%= link_to 'Edit', edit_admin_teacher_assigment_path(assigment), :class=>"seznam__a seznam__a-right" %>
+        <%= link_to 'Destroy', [:admin, assigment], method: :delete, data: { confirm: 'Are you sure?' }, :class=>"seznam__a seznam__a-end" %>
+      </li>
+  <% end %>
+</ul>
