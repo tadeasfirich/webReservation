@@ -12,7 +12,7 @@
 
 class Teacher < ApplicationRecord
 
-  has_many :teacher_assignment, dependent: :destroy
+  has_many :teacher_assigments, dependent: :destroy
 
   has_many :lesson, dependent: :destroy
 

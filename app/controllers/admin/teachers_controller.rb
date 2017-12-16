@@ -28,7 +28,7 @@
 
     respond_to do |format|
       if @teacher.save
-        format.html { redirect_to @teacher, notice: 'Teacher was successfully created.' }
+        format.html { redirect_to [:admin, @teacher], notice: 'Teacher was successfully created.' }
         format.json { render :show, status: :created, location: @teacher }
       else
         format.html { render :new }
@@ -56,7 +56,7 @@
   def destroy
     @teacher.destroy
     respond_to do |format|
-      format.html { redirect_to teachers_url, notice: 'Teacher was successfully destroyed.' }
+      format.html { redirect_to admin_teachers_url, notice: 'Teacher was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
