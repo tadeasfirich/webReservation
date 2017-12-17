@@ -15,7 +15,7 @@
     <ul class="header__ul">
       <li>
         <!--TODO: Dodělat active class na aktivním prvku-->
-        <%= link_to 'Building', admin_buildings_url, :class => "header__a #{current_class?(admin_buildings_url)}" %>
+        <%= link_to 'Building', admin_buildings_url, :class => "header__a #{current_class?(admin_buildings_path)}" %>
       </li>
       <li>
         <%=	link_to 'Rooms', admin_rooms_path, :class => "header__a #{current_class?(admin_rooms_path)}"%>

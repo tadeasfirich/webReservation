@@ -1,15 +1,16 @@
-<h1 class="container__h1">Seznam Budov</h1>
+<h1 class="container__h1">Rooms</h1>
 <nav class="container__nav">
-  <%= link_to 'Seznam Budov', root_path, :class=>"container__item" %>
-  <p class="container__item">&gt;</p>
-  <a class="container__a">Seznam Roomů</a>
+  <a class="container__a">Rooms</a>
 </nav>
 <!--FIXME: Z nějakého důvodu mnefunguje room.building.code-->
+<%= link_to 'Add',  new_admin_room_path , :class=>'button' %>
+<p class="seznam__a seznam__a-header">Rooms name</p>
 <ul class="seznam">
   <% @rooms.each do |room| %>
       <li class="seznam__li">
-        <%= link_to room.title, room, :class=>"seznam__a" %>
-        <%= link_to "is in Building: #{room.building.title}", room.building, :class=>"seznam__a" %>
+        <%= link_to room.title, '', :class=>"seznam__a" %>
+        <%= link_to 'Edit', edit_admin_room_path(room), :class=>"seznam__a seznam__a-right" %>
+        <%= link_to 'Destroy', [:admin, room], method: :delete, data: { confirm: 'Are you sure?' }, :class=>"seznam__a seznam__a-end" %>
       </li>
   <% end %>
 </ul>

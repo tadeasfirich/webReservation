@@ -30,7 +30,7 @@ class Admin::RoomsController < AdminController
 
     respond_to do |format|
       if @room.save
-        format.html { redirect_to [:admin, @building], notice: 'Room was successfully created.' }
+        format.html { redirect_to admin_buildings_path, notice: 'Room was successfully created.' }
         format.json { render :show, status: :created, location: @room }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class Admin::RoomsController < AdminController
   def update
     respond_to do |format|
       if @room.update(room_params)
-        format.html { redirect_to [:admin, @building], notice: 'Room was successfully updated.' }
+        format.html { redirect_to admin_buildings_path, notice: 'Room was successfully updated.' }
         format.json { render :show, status: :ok, location: @room }
       else
         format.html { render :edit }
@@ -58,7 +58,7 @@ class Admin::RoomsController < AdminController
   def destroy
     @room.destroy
     respond_to do |format|
-      format.html { redirect_to [:admin, @building], notice: 'Room was successfully destroyed.' }
+      format.html { redirect_to admin_buildings_path, notice: 'Room was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
