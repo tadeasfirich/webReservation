@@ -13,9 +13,9 @@
 
 class Course < ApplicationRecord
 
-  has_many :student_assignment, dependent: :destroy
+  has_many :student_assigment, dependent: :destroy
 
-  has_many :teacher_assignment, dependent: :destroy
+  has_many :teacher_assigment, dependent: :destroy
 
   has_many :lesson, dependent: :destroy
 
