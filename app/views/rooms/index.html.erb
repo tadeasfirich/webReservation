@@ -6,13 +6,13 @@
 </nav>
 <!--FIXME: nefunguje room.building.code-->
 <% if @rooms.empty? %>
-    <p>V této budově nejsou žádné místnosti</p>
+    <p class="seznam__warning">Neexistují žádné místnosti</p>
 <% else %>
-<ul class="seznam">
-  <% @rooms.each do |room| %>
-      <li class="seznam__li">
-        <%= link_to "#{room.title}: (#{room.code})" , room, :class=>"seznam__a" %>
-      </li>
-  <% end %>
-</ul>
+    <ul class="seznam">
+      <% @rooms.each do |room| %>
+          <li class="seznam__li">
+            <%= link_to "#{room.title}: (#{room.code})" , room, :class=>"seznam__a" %>
+          </li>
+      <% end %>
+    </ul>
 <% end %>

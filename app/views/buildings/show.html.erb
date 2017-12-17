@@ -5,10 +5,14 @@
   <a class="container__item">Seznam místností</a>
 </nav>
 <%= link_to 'Denní rozpis', building_today_url , :class=>'button' %>
-<ul class="seznam">
-  <% @rooms.each do |room| %>
-      <li class="seznam__li">
-        <%= link_to room.title, room, :class=>"seznam__a" %>
-      </li>
-  <% end %>
-</ul>
+<% if @rooms.empty? %>
+    <p class="seznam__warning">V této budově nejsou žádné místnosti</p>
+<% else %>
+    <ul class="seznam">
+      <% @rooms.each do |room| %>
+          <li class="seznam__li">
+            <%= link_to room.title, room, :class=>"seznam__a" %>
+          </li>
+      <% end %>
+    </ul>
+<% end %>

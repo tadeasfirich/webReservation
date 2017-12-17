@@ -3,15 +3,17 @@
   <a class="container__a">Students</a>
 </nav>
 <%= link_to 'Add',  new_admin_student_path , :class=>'button' %>
-<p class="seznam__a seznam__a-header">first_name last_name: email (study type)</p>
-<ul class="seznam">
-  <% @students.each do |student| %>
-      <li class="seznam__li">
-        <%= link_to "#{student.first_name} #{student.last_name}: #{student.email} (#{student.study_type})", '', :class=>"seznam__a" %>
-        <%= link_to 'Edit', edit_admin_student_path(student), :class=>"seznam__a seznam__a-right" %>
-        <%= link_to 'Destroy', [:admin, student], method: :delete, data: { confirm: 'Are you sure?' }, :class=>"seznam__a seznam__a-end" %>
-      </li>
-  <% end %>
-</ul>
-
-<!--TODO: Dodělat empty screen-->
+<% if @students.empty? %>
+    <p class="seznam__warning">Students are empty</p>
+<% else %>
+    <p class="seznam__a seznam__a-header">first_name last_name: email (study type)</p>
+    <ul class="seznam">
+      <% @students.each do |student| %>
+          <li class="seznam__li">
+            <%= link_to "#{student.first_name} #{student.last_name}: #{student.email} (#{student.study_type})", '', :class=>"seznam__a" %>
+            <%= link_to 'Edit', edit_admin_student_path(student), :class=>"seznam__a seznam__a-right" %>
+            <%= link_to 'Destroy', [:admin, student], method: :delete, data: { confirm: 'Are you sure?' }, :class=>"seznam__a seznam__a-end" %>
+          </li>
+      <% end %>
+    </ul>
+<% end %>

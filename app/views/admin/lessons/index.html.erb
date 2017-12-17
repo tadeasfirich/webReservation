@@ -3,13 +3,17 @@
   <a class="container__a">Lessons</a>
 </nav>
 <%= link_to 'Add',  new_admin_lesson_path , :class=>'button' %>
-<p class="seznam__a seznam__a-header">Start_at :: End_at (duration): (room code) Teacher_surname Course_code</p>
-<ul class="seznam">
-  <% @lessons.each do |lesson| %>
-      <li class="seznam__li">
-        <%= link_to "#{lesson.start_at.strftime("%Y-%m-%d %I:%M%p")} :: #{lesson.end_at.strftime("%Y-%m-%d %I:%M%p")} (#{lesson.durration}): (#{lesson.room.code}) #{lesson.teacher.last_name} #{lesson.course.code}", '', :class=>"seznam__a" %>
-        <%= link_to 'Edit', edit_admin_lesson_path(lesson), :class=>"seznam__a seznam__a-right" %>
-        <%= link_to 'Destroy', [:admin, lesson], method: :delete, data: { confirm: 'Are you sure?' }, :class=>"seznam__a seznam__a-end" %>
-      </li>
-  <% end %>
-</ul>
+<% if @lessons.empty? %>
+    <p class="seznam__warning">Lessons are empty</p>
+<% else %>
+    <p class="seznam__a seznam__a-header">Start_at :: End_at (duration): (room code) Teacher_surname Course_code</p>
+    <ul class="seznam">
+      <% @lessons.each do |lesson| %>
+          <li class="seznam__li">
+            <%= link_to "#{lesson.start_at.strftime("%Y-%m-%d %I:%M%p")} :: #{lesson.end_at.strftime("%Y-%m-%d %I:%M%p")} (#{lesson.durration}): (#{lesson.room.code}) #{lesson.teacher.last_name} #{lesson.course.code}", '', :class=>"seznam__a" %>
+            <%= link_to 'Edit', edit_admin_lesson_path(lesson), :class=>"seznam__a seznam__a-right" %>
+            <%= link_to 'Destroy', [:admin, lesson], method: :delete, data: { confirm: 'Are you sure?' }, :class=>"seznam__a seznam__a-end" %>
+          </li>
+      <% end %>
+    </ul>
+<% end %>
