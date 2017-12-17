@@ -1,47 +1,16 @@
-<%= form_with(model: lesson, local: true) do |form| %>
-  <% if lesson.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(lesson.errors.count, "error") %> prohibited this lesson from being saved:</h2>
+<%= simple_form_for [:admin, @lesson]  do |f| %>
+    <%= f.error_notification %>
 
-      <ul>
-      <% lesson.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="form-inputs">
+      <%=f.input :start_at %>
+      <%=f.input :end_at %>
+      <%=f.input :durration %>
+      <%=f.association :room, label_method: :code %>
+      <%=f.association :teacher, label_method: :last_name %>
+      <%=f.association :course, label_method: :code %>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :start_at %>
-    <%= form.datetime_select :start_at, id: :lesson_start_at %>
-  </div>
-
-  <div class="field">
-    <%= form.label :end_at %>
-    <%= form.datetime_select :end_at, id: :lesson_end_at %>
-  </div>
-
-  <div class="field">
-    <%= form.label :durration %>
-    <%= form.number_field :durration, id: :lesson_durration %>
-  </div>
-
-  <div class="field">
-    <%= form.label :room_id %>
-    <%= form.text_field :room_id, id: :lesson_room_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :teacher_id %>
-    <%= form.text_field :teacher_id, id: :lesson_teacher_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :course_id %>
-    <%= form.text_field :course_id, id: :lesson_course_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
 <% end %>
