@@ -48,7 +48,7 @@ end
 }
 
 #Rooms
-30.times {
+50.times {
   r = rand * (11-1) + 1
   Room.create!(:title => room_name, :code => room_code, :building => Building.order('RANDOM()').first)
 }
