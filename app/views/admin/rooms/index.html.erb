@@ -4,8 +4,8 @@
   <p class="container__item">&gt;</p>
   <a class="container__a">Seznam Roomů</a>
 </nav>
+<!--FIXME: Z nějakého důvodu mnefunguje room.building.code-->
 <ul class="seznam">
-  <!--FIXME: SERU se-->
   <% @rooms.each do |room| %>
       <li class="seznam__li">
         <%= link_to room.title, room, :class=>"seznam__a" %>

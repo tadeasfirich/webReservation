@@ -5,6 +5,7 @@ class RoomsController < ApplicationController
   # GET /rooms
   # GET /rooms.json
   def index
+    @buildings = Building.all
     @rooms = Room.all
   end
 
