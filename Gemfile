@@ -49,6 +49,10 @@ group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'annotate', '~> 2.7', '>= 2.7.2'
   gem 'bullet', '~> 5.7'
+  gem 'ruby-growl', '~> 4.1'
+  gem 'xmpp4r', '~> 0.5.6'
+  gem 'listen', '~> 3.1', '>= 3.1.5'
+  gem 'wdm', '~> 0.1.1'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

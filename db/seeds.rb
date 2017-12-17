@@ -43,54 +43,70 @@ end
 
 
 #Buildings
-3.times {
-  Building.create!(:title => building_name, :code => building_code)
-}
+if Building.count == 0
+  3.times {
+    Building.create!(:title => building_name, :code => building_code)
+  }
+end
 
 #Rooms
-15.times {
-  r = rand * (11-1) + 1
-  Room.create!(:title => room_name, :code => room_code, :building => Building.order('RANDOM()').first)
-}
+if Room.count == 0
+  15.times {
+    r = rand * (11-1) + 1
+    Room.create!(:title => room_name, :code => room_code, :building => Building.order('RANDOM()').first)
+  }
+end
 
 #Teacher
-10.times {
-  Teacher.create!(:first_name => first_name, :last_name => last_name, :email => email)
-}
+if Teacher.count == 0
+  10.times {
+    Teacher.create!(:first_name => first_name, :last_name => last_name, :email => email)
+  }
+end
 
 #Courses
-10.times {
-  r = rand * (3-1) + 1
-  s = rand * (3-1) + 1
-  Course.create!(:title => course_title, :code => building_code, :language => r.to_i, :study_type => s.to_i)
-}
+if Course.count == 0
+  10.times {
+    r = rand * (3-1) + 1
+    s = rand * (3-1) + 1
+    Course.create!(:title => course_title, :code => building_code, :language => r.to_i, :study_type => s.to_i)
+  }
+end
 
 #Students
-20.times {
-  r = rand * (3-1) + 1
-  Student.create!(:first_name => first_name, :last_name => last_name, :email => email, :study_type => r.to_i)
-}
+if Student.count == 0
+  20.times {
+    r = rand * (3-1) + 1
+    Student.create!(:first_name => first_name, :last_name => last_name, :email => email, :study_type => r.to_i)
+  }
+end
 
 #StudentAssigments
-50.times {
-  StudentAssigment.create!(:course => Course.order('RANDOM()').first, :student => Student.order('RANDOM()').first)
-}
+if StudentAssigment.count == 0
+  50.times {
+    StudentAssigment.create!(:course => Course.order('RANDOM()').first, :student => Student.order('RANDOM()').first)
+  }
+end
 
 #TeacherAssigments
-50.times {
-  TeacherAssigment.create!(:teacher => Teacher.order('RANDOM()').first, :course => Course.order('RANDOM()').first)
-}
+if TeacherAssigment.count == 0
+  50.times {
+    TeacherAssigment.create!(:teacher => Teacher.order('RANDOM()').first, :course => Course.order('RANDOM()').first)
+  }
+end
 
 #Lessons
-year = "2017"
-13.times {
-  mounth = '12'
-  day = Date.today.strftime("%d")
-  hour = (rand * (11-1) + 8).to_i
-  hour2 = (hour.to_i + 3).to_s
-  minutes = "00"
-  datetime = "#{year}-#{mounth}-#{day} #{hour}:#{minutes}:00"
-  datetime2 = "#{year}-#{mounth}-#{day} #{hour2}:#{minutes}:00"
-  Lesson.create!(:start_at => datetime, :end_at => datetime2, :durration => 3, :room => Room.order('RANDOM()').first,
-                 :teacher => Teacher.order('RANDOM()').first, :course => Course.order('RANDOM()').first)
-}
+if Lesson.count == 0
+  year = "2017"
+  13.times {
+    mounth = '12'
+    day = Date.today.strftime("%d")
+    hour = (rand * (11-1) + 8).to_i
+    hour2 = (hour.to_i + 3).to_s
+    minutes = "00"
+    datetime = "#{year}-#{mounth}-#{day} #{hour}:#{minutes}:00"
+    datetime2 = "#{year}-#{mounth}-#{day} #{hour2}:#{minutes}:00"
+    Lesson.create!(:start_at => datetime, :end_at => datetime2, :durration => 3, :room => Room.order('RANDOM()').first,
+                   :teacher => Teacher.order('RANDOM()').first, :course => Course.order('RANDOM()').first)
+  }
+end
