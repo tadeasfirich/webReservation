@@ -5,6 +5,9 @@
   <a class="container__a">Seznam místností</a>
 </nav>
 <!--FIXME: nefunguje room.building.code-->
+<% if @rooms.empty? %>
+    <p>V této budově nejsou žádné místnosti</p>
+<% else %>
 <ul class="seznam">
   <% @rooms.each do |room| %>
       <li class="seznam__li">
@@ -12,3 +15,4 @@
       </li>
   <% end %>
 </ul>
+<% end %>

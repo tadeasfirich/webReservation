@@ -2,6 +2,9 @@
 <nav class="container__nav">
   <a class="container__a">Seznam Budov</a>
 </nav>
+<% if @buildings.empty? %>
+    <p class="seznam__warning">Neexistují žádné budovy</p>
+<% else %>
 <ul class="seznam">
   <% @buildings.each do |building| %>
     <li class="seznam__li">
@@ -9,3 +12,4 @@
     </li>
   <% end %>
 </ul>
+<% end %>

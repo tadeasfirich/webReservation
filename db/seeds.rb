@@ -43,12 +43,12 @@ end
 
 
 #Buildings
-10.times {
+3.times {
   Building.create!(:title => building_name, :code => building_code)
 }
 
 #Rooms
-50.times {
+15.times {
   r = rand * (11-1) + 1
   Room.create!(:title => room_name, :code => room_code, :building => Building.order('RANDOM()').first)
 }
@@ -66,7 +66,7 @@ end
 }
 
 #Students
-10.times {
+20.times {
   r = rand * (3-1) + 1
   Student.create!(:first_name => first_name, :last_name => last_name, :email => email, :study_type => r.to_i)
 }
@@ -83,9 +83,7 @@ end
 
 #Lessons
 year = "2017"
-
-#TODO: Dodělat valdaci, jestli již datum neexistuje
-150.times {
+13.times {
   mounth = '12'
   day = Date.today.strftime("%d")
   hour = (rand * (11-1) + 8).to_i
