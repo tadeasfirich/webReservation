@@ -1,29 +1,15 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Courses</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Code</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @courses.each do |course| %>
-      <tr>
-        <td><%= course.title %></td>
-        <td><%= course.code %></td>
-        <td><%= link_to 'Show', [:admin, course] %></td>
-        <td><%= link_to 'Edit', edit_admin_course_path(course) %></td>
-        <td><%= link_to 'Destroy', [:admin, course], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Course', new_admin_course_path %>
+<h1 class="container__h1">Kurzy</h1>
+<nav class="container__nav">
+  <a class="container__a">Kurzy</a>
+</nav>
+<%= link_to 'Add',  new_admin_course_path , :class=>'button' %>
+<p class="seznam__a seznam__a-header">Název kurzu (kód): Jazyk typ studia</p>
+<ul class="seznam">
+  <% @courses.each do |course| %>
+      <li class="seznam__li">
+        <%= link_to "#{course.title} (#{course.code}): #{course.language} #{course.study_type}", '', :class=>"seznam__a" %>
+        <%= link_to 'Edit', edit_admin_course_path(course), :class=>"seznam__a seznam__a-right" %>
+        <%= link_to 'Destroy', [:admin, course], method: :delete, data: { confirm: 'Are you sure?' }, :class=>"seznam__a seznam__a-end" %>
+      </li>
+  <% end %>
+</ul>

@@ -3,6 +3,7 @@
   <a class="container__a">Student Assigment</a>
 </nav>
 <%= link_to 'Add',  new_admin_student_assigment_path , :class=>'button' %>
+<p class="seznam__a seznam__a-header">Jméno Příjmení: (kód) název kurzu</p>
 <ul class="seznam">
   <% @student_assigments.each do |assigment| %>
       <li class="seznam__li">

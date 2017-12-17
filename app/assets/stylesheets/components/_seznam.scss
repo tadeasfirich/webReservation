@@ -32,6 +32,14 @@
     @at-root #{&}-end {
       margin-right: 14px;
     }
+    @at-root #{&}-header {
+      display: block;
+      margin-top: 14px;
+      &:hover {
+        cursor: initial;
+        text-decoration: none;
+      }
+    }
   }
 }
 
