@@ -4,12 +4,14 @@
 
     <%= link_to 'Seznam Budov', root_path, :class=>"container__item" %>
     <p class="container__item">&gt;</p>
-    <%= link_to @building.title, @building, :class=>"container__item" %>
+    <%= link_to @building.title, session[:return_to] ||= request.referer, :class=>"container__item" %>
     <p class="container__item">&gt;</p>
     <a class="container__item">Rozvrh dne</a>
   </nav>
   <div class="tableholder">
-    <div></div>
+    <% @lessons.each do |lesson| %>
+        <div><%= lesson.course.title %></div>
+    <% end %>
     <table class="table">
       <tr class="table__heading">
         <th></th>
