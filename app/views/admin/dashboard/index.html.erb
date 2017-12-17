@@ -1,0 +1,30 @@
+<h1 class="container__h1">Dashboard</h1>
+<nav class="container__nav">
+  <a class="container__a">Dashboard</a>
+</nav>
+<ul class="seznam">
+    <li class="seznam__li">
+      <%= link_to "Buildings", admin_buildings_path, :class=>"seznam__a" %>
+    </li>
+  <li class="seznam__li">
+    <%= link_to "Rooms", admin_rooms_path, :class=>"seznam__a" %>
+  </li>
+  <li class="seznam__li">
+    <%= link_to "Teachers", admin_teachers_path, :class=>"seznam__a" %>
+  </li>
+  <li class="seznam__li">
+    <%= link_to "Courses", admin_courses_path, :class=>"seznam__a" %>
+  </li>
+  <li class="seznam__li">
+    <%= link_to "Students", admin_students_path, :class=>"seznam__a" %>
+  </li>
+  <li class="seznam__li">
+    <%= link_to "Lessons", admin_lessons_path, :class=>"seznam__a" %>
+  </li>
+  <li class="seznam__li">
+    <%= link_to "Student Assigments", admin_student_assigments_path, :class=>"seznam__a" %>
+  </li>
+  <li class="seznam__li">
+    <%= link_to "Teacher Assigments", admin_teacher_assigments_path, :class=>"seznam__a" %>
+  </li>
+</ul>

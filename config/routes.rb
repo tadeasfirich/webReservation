@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   #TODO: DOdělat namespace admin
   namespace :admin do
+    root to: 'dashboard#index'
     resources :student_assigments
     resources :teacher_assigments
     resources :lessons
