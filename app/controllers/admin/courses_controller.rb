@@ -28,7 +28,7 @@ class Admin::CoursesController < AdminController
 
     respond_to do |format|
       if @course.save
-        format.html { redirect_to [:admin, @course], notice: 'Course was successfully created.' }
+        format.html { redirect_to admin_courses_path, notice: 'Course was successfully created.' }
         format.json { render :show, status: :created, location: @course }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class Admin::CoursesController < AdminController
   def update
     respond_to do |format|
       if @course.update(course_params)
-        format.html { redirect_to [:admin, @course], notice: 'Course was successfully updated.' }
+        format.html { redirect_to admin_courses_path, notice: 'Course was successfully updated.' }
         format.json { render :show, status: :ok, location: @course }
       else
         format.html { render :edit }
