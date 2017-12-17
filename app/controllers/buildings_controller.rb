@@ -14,7 +14,7 @@ class BuildingsController < ApplicationController
   end
 
   def show_today
-    @lessons = Lesson.select{|lesson| (lesson.start_at.strftime("%Y-%m-%d") == Date.today.to_s) && (lesson.room.building == @building)}
+    @lessons = Lesson.includes(:room, :course, :teacher).select{|lesson| (lesson.start_at.strftime("%Y-%m-%d") == Date.today.to_s) && (lesson.room.building == @building)}
   end
 
   # GET /buildings/new

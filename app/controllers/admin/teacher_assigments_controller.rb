@@ -4,7 +4,7 @@ class Admin::TeacherAssigmentsController < AdminController
   # GET /teacher_assigments
   # GET /teacher_assigments.json
   def index
-    @teacher_assigments = TeacherAssigment.all
+    @teacher_assigments = TeacherAssigment.includes(:teacher, :course).all
   end
 
   # GET /teacher_assigments/1

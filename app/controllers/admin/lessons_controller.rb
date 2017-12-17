@@ -4,7 +4,7 @@ class Admin::LessonsController < AdminController
   # GET /lessons
   # GET /lessons.json
   def index
-    @lessons = Lesson.all
+    @lessons = Lesson.includes(:room, :teacher, :course).all
   end
 
   # GET /lessons/1
