@@ -9,9 +9,6 @@
     <a class="container__item">Rozvrh dne</a>
   </nav>
   <div class="tableholder">
-    <% @lessons.each do |lesson| %>
-        <div><%= lesson.course.title %></div>
-    <% end %>
     <table class="table">
       <tr class="table__heading">
         <th></th>
@@ -165,11 +162,3 @@
       <% end %>
     </ul>
   </aside>
-
-  <div class="seznam">
-    <% @lessons.each do |lesson| %>
-        <p class="seznam__li">
-          <%= link_to lesson.start_at, '', :class=>"seznam__a" %>
-        </p>
-    <% end %>
-  </div>
